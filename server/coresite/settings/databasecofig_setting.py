@@ -1,4 +1,4 @@
-from .base_setting import BASE_DIR
+from .environment_setting import BASE_DIR
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',

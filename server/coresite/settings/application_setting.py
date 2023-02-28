@@ -1,4 +1,4 @@
-INSTALLED_APPS = [
+DJANGO_APPLICATIONS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -6,13 +6,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # custom Modules
-    'core',
+]
 
-    # third party Applications
+CUSTOM_APPLICATIONS = [
+    'core',
+]
+
+THIRD_PARTY_APPLICATIONS = [
     'rest_framework',
     'corsheaders',
     'rest_framework_simplejwt',
-
-
 ]
