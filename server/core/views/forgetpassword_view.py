@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from django.contrib.auth import get_user_model
 # from rest_framework import permissions
 from rest_framework import status
-from django.core.mail import send_mail
+from core.threads import send_mail
 from django.conf import settings
 User = get_user_model()
 
@@ -28,5 +28,5 @@ class ForgetPasswordView(APIView):
         message = 'Hi {user.username}, Please use this link to reset your password http://'
         email_from = settings.EMAIL_HOST_USER
         recipient_list = [email, ]
-        send_mail(subject, message, email_from, recipient_list)
+        send_mail()
         return Response({'detail': 'We have sent you a link to reset your password'}, status=status.HTTP_200_OK)

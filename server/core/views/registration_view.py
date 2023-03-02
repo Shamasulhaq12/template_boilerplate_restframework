@@ -13,6 +13,7 @@ from rest_framework import status
 from django.core.mail import send_mail
 from django.conf import settings
 User = get_user_model()
+email = settings.EMAIL_HOST_USER
 
 
 class RegistrationView(APIView):
@@ -22,6 +23,7 @@ class RegistrationView(APIView):
     serializer_class = CreateUserSerializer
 
     def post(self, request, *args, **kwargs):
+        print(email)
         serializer = CreateUserSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.save()

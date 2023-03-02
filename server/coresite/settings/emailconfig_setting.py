@@ -1,4 +1,4 @@
-from .base_setting import env
+from .environment_setting import env
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
