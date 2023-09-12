@@ -1,13 +1,15 @@
-from rest_framework.views import APIView    
+from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.permissions import AllowAny
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
 
 class EmailExistAPIView(APIView):
-    
+    permission_classes = [AllowAny,]
+
     """ 
         Here you can check if email already exists or not
     """
@@ -23,4 +25,3 @@ class EmailExistAPIView(APIView):
             return Response({'message': True, "status": "200"}, status=status.HTTP_200_OK)
         except Exception as e:
             return Response({"message": str(e), "status": "500"}, status.HTTP_500_INTERNAL_SERVER_ERROR)
-
